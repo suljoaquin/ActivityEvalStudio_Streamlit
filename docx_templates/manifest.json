@@ -1,0 +1,18 @@
+{
+  "activity_report": {
+    "id": "activity_report",
+    "name": "Activity Evaluation Report",
+    "kind": "activity",
+    "source": "docx_templates\\source\\activity_report_sample.docx",
+    "compiled": "docx_templates\\compiled\\activity_report.docx",
+    "template": "docxtpl"
+  },
+  "speaker_report": {
+    "id": "speaker_report",
+    "name": "Speaker/Topic Evaluation Report",
+    "kind": "speaker",
+    "source": "docx_templates\\source\\speaker_report_sample.docx",
+    "compiled": "docx_templates\\compiled\\speaker_report.docx",
+    "template": "docxtpl"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "activity_report",
+  "name": "Activity Evaluation Report",
+  "kind": "activity",
+  "source": "docx_templates/source/activity_report_sample.docx",
+  "compiled": "docx_templates/compiled/activity_report.docx",
+  "meta": {
+    "table_first_cell": "Training/Workshop/ Activity",
+    "value_col": 1,
+    "rows": ["title", "date", "venue", "proponent"]
+  },
+  "summary": {
+    "table_first_cell": "Overall Satisfaction",
+    "cells": {
+      "overall": { "row": 0, "col": 1 },
+      "n": { "row": 1, "col": 1 }
+    }
+  },
+  "criteria": {
+    "table_first_cell": "CRITERIA",
+    "mean_col": 1,
+    "label_col": 2,
+    "rows": {
+      "2": "content.objectives",
+      "3": "content.organized",
+      "4": "content.examples",
+      "5": "content.audio_visual",
+      "6": "content.relevance",
+      "8": "management.length",
+      "9": "management.schedule",
+      "10": "management.secretariat",
+      "11": "management.venue",
+      "12": "management.hospitality",
+      "13": "management.food",
+      "15": "overall.objectives",
+      "16": "overall.knowledge"
+    }
+  },
+  "comments": {
+    "part2": {
+      "heading_prefix": "Part II.",
+      "next_heading_prefix": "Part III.",
+      "fallback": "No comments were provided."
+    },
+    "part3": {
+      "heading_prefix": "Part III.",
+      "next_heading_prefix": "Prepared by:",
+      "fallback_tag": "{{ activity_part3_none_sentence }}"
+    }
+  },
+  "signature": {
+    "prepared_prefix": "Prepared by:",
+    "first_name_contains": "ADRIAN ERLE",
+    "second_name_contains": "MARJUN I. BALQUIN",
+    "role_text": "LEAP Coordinator"
+  }
+}

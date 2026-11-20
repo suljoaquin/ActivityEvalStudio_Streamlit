@@ -1,0 +1,71 @@
+{
+  "id": "speaker_report",
+  "name": "Speaker/Topic Evaluation Report",
+  "kind": "speaker",
+  "source": "docx_templates/source/speaker_report_sample.docx",
+  "compiled": "docx_templates/compiled/speaker_report.docx",
+  "meta": {
+    "table_first_cell": "Training/Workshop/ Activity",
+    "value_col": 1,
+    "rows": ["title", "date", "venue", "proponent"]
+  },
+  "info": {
+    "table_first_cell": "Topic/s",
+    "cells": {
+      "topic": { "row": 0, "col": 1 },
+      "name": { "row": 1, "col": 1 }
+    }
+  },
+  "summary": {
+    "table_first_cell": "I. Topic/Subject Matter",
+    "cells": {
+      "topic": { "row": 0, "col": 1 },
+      "resource": { "row": 1, "col": 1 }
+    }
+  },
+  "respondents": {
+    "table_first_cell": "Number of Respondents",
+    "row": 0,
+    "col": 1
+  },
+  "topic": {
+    "table_first_cell": "ATTRIBUTES",
+    "mean_col": 1,
+    "label_col": 2,
+    "rows": {
+      "2": "topic.depth",
+      "3": "topic.scope",
+      "4": "topic.relevance"
+    }
+  },
+  "resource": {
+    "table_first_cell": "ITEMS",
+    "mean_col": 1,
+    "label_col": 2,
+    "rows": {
+      "1": "rp.attainment",
+      "3": "rp.mastery_command",
+      "4": "rp.mastery_pace",
+      "5": "rp.mastery_balance",
+      "6": "rp.mastery_trends",
+      "8": "rp.presentation_listen",
+      "9": "rp.presentation_answers",
+      "10": "rp.presentation_participation",
+      "11": "rp.presentation_interest",
+      "12": "rp.acceptability"
+    }
+  },
+  "comments": {
+    "q1": "consider the resource person effective",
+    "q2": "suggest ways in which",
+    "q3": "what other topic",
+    "prepared_prefix": "Prepared by:",
+    "description_text": "(unedited comments)"
+  },
+  "signature": {
+    "prepared_prefix": "Prepared by:",
+    "first_name_contains": "ADRIAN ERLE",
+    "second_name_contains": "MARJUN I. BALQUIN",
+    "role_text": "LEAP Coordinator"
+  }
+}

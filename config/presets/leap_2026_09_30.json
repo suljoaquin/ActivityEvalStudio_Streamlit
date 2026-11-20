@@ -1,0 +1,41 @@
+{
+  "id": "leap_2026_09_30",
+  "name": "LEAP Capability Training — 30 Sep 2026",
+  "match": { "filename_contains": ["leap"], "speaker_count": 3 },
+  "activity_template": "activity_report",
+  "speaker_template": "speaker_report",
+  "activity_mapping": "pshs_activity_v1",
+  "speaker_mapping": "pshs_speaker_v1",
+  "metadata": {
+    "title": "LEAP Capability Training",
+    "date": "September 30, 8:00 AM to 5:00 PM",
+    "venue": "Acad II, PSHS-SRC in Koronadal City, South Cotabato",
+    "proponent": "CID",
+    "prepared_by": "ADRIAN ERLE B. VEGA",
+    "checked_by": "MARJUN I. BALQUIN",
+    "signatory_name": "MARJUN I. BALQUIN",
+    "signatory_role": "LEAP Coordinator"
+  },
+  "speakers": [
+    {
+      "name": "HON. CATHERINE A. VELASCO-SUPEDA",
+      "topic": "Leadership: Integrity, Excellence,\nSelf-Awareness, and Faith in Action"
+    },
+    {
+      "name": "MS. MAUDE ANGELA G. AUJERO, RPh",
+      "topic": "Becoming a STEM Leader: Service\nand Advocacy for Student-Led\nSTEM Organizations"
+    },
+    {
+      "name": "MR. ARJIE P. CASTILLON, RMicro",
+      "topic": "Essential Skills for Student Leaders:\nTime Management, Teamwork, and\nStudent-leader..."
+    }
+  ],
+  "hospitality": { "mode": "na", "applicable": false },
+  "anomaly_notes": [
+    "The sample activity report labels 4.56 and 4.67 as 'Very Satisfactory' although its own printed legend says 4.20–5.00 is 'Excellent'. The generator follows the printed legend.",
+    "The sample Speaker 2 report repeats Q2 answers in the Q3 section. The generator uses the actual Q3 column.",
+    "The sample activity report keeps a 'Hotel accommodation/lodging' N/A row even though this form has no hotel question. The generator removes that empty row.",
+    "The sample activity report has N=18 while each speaker report has N=19 because one respondent skipped every activity item but answered all topic items. The generator reports each N from the responses that actually contributed to that report."
+  ],
+  "notes": "Reference sample: 2026_09_30 LEAP Capability Training.docx and 1./2./3. SpeakerEval_LEAP.docx"
+}

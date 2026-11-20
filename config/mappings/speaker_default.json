@@ -1,0 +1,199 @@
+{
+  "id": "pshs_speaker_v1",
+  "name": "PSHS Speaker/Topic Evaluation (3-point topic, 5-point resource person)",
+  "version": 1,
+  "description": "Maps a single speaker question block. The detector slices one block per speaker; every block has 16 columns in the supplied Google Forms layout.",
+  "topic_scale": {
+    "min": 1,
+    "max": 3
+  },
+  "resource_scale": {
+    "min": 1,
+    "max": 5
+  },
+  "topic_legend": [
+    {
+      "min": 2.33,
+      "max": 3.0,
+      "label": "Excellent"
+    },
+    {
+      "min": 1.68,
+      "max": 2.32,
+      "label": "Satisfactory"
+    },
+    {
+      "min": 1.0,
+      "max": 1.67,
+      "label": "Low"
+    }
+  ],
+  "resource_legend": [
+    {
+      "min": 4.2,
+      "max": 5.0,
+      "label": "Strongly Agree"
+    },
+    {
+      "min": 3.4,
+      "max": 4.19,
+      "label": "Agree"
+    },
+    {
+      "min": 2.6,
+      "max": 3.39,
+      "label": "Neutral"
+    },
+    {
+      "min": 1.8,
+      "max": 2.59,
+      "label": "Disagree"
+    },
+    {
+      "min": 1.0,
+      "max": 1.79,
+      "label": "Strongly Disagree"
+    }
+  ],
+  "topic_items": [
+    {
+      "key": "topic.depth",
+      "label": "A. Depth of Content",
+      "patterns": [
+        "depth of content"
+      ]
+    },
+    {
+      "key": "topic.scope",
+      "label": "B. Scope/ Coverage",
+      "patterns": [
+        "scope coverage"
+      ]
+    },
+    {
+      "key": "topic.relevance",
+      "label": "C. Relevance/ Appropriateness",
+      "patterns": [
+        "relevance appropriateness"
+      ]
+    }
+  ],
+  "resource_items": [
+    {
+      "key": "rp.attainment",
+      "label": "ATTAINMENT OF TOPIC OBJECTIVES",
+      "patterns": [
+        "attainment of topic objectives"
+      ]
+    },
+    {
+      "key": "rp.mastery_command",
+      "label": "Demonstrated command of subject matter",
+      "patterns": [
+        "demonstrated command of subject matter"
+      ]
+    },
+    {
+      "key": "rp.mastery_pace",
+      "label": "Maintained comfortable pace and timing",
+      "patterns": [
+        "maintained comfortable pace and timing"
+      ]
+    },
+    {
+      "key": "rp.mastery_balance",
+      "label": "Balanced the theories/principles with applications",
+      "patterns": [
+        "theories principles with applications"
+      ]
+    },
+    {
+      "key": "rp.mastery_trends",
+      "label": "Presented current trends/ developments related to the topic",
+      "patterns": [
+        "presented current trends developments"
+      ]
+    },
+    {
+      "key": "rp.presentation_listen",
+      "label": "Listened to what I and other attendees had to say",
+      "patterns": [
+        "listened to what i and other attendees"
+      ]
+    },
+    {
+      "key": "rp.presentation_answers",
+      "label": "Answered questions effectively",
+      "patterns": [
+        "answered questions effectively"
+      ]
+    },
+    {
+      "key": "rp.presentation_participation",
+      "label": "Inspired participation of attendees",
+      "patterns": [
+        "inspired participation of attendees"
+      ]
+    },
+    {
+      "key": "rp.presentation_interest",
+      "label": "Held my interest in the topic",
+      "patterns": [
+        "held my interest in the topic"
+      ]
+    },
+    {
+      "key": "rp.acceptability",
+      "label": "Acceptability of the Speaker as Resource Person",
+      "patterns": [
+        "acceptability of the speaker as resource person"
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "key": "q1",
+      "patterns": [
+        "over all can you consider the resource person effective",
+        "consider the resource person effective"
+      ],
+      "label": "Over-all, can you consider the resource person effective? Why or why not?"
+    },
+    {
+      "key": "q2",
+      "patterns": [
+        "suggest ways in which he she can best improve"
+      ],
+      "label": "Please suggest ways in which he/she can best improve in this particular topic/ presentation."
+    },
+    {
+      "key": "q3",
+      "patterns": [
+        "what other topic would you have wanted"
+      ],
+      "label": "What other topic would you have wanted him/her to cover?"
+    }
+  ],
+  "speaker_name_patterns": [
+    "speaker name",
+    "name of speaker",
+    "resource person name"
+  ],
+  "noise": [
+    "n a",
+    "na",
+    "none",
+    "nil",
+    "no comment",
+    "no comments",
+    ".",
+    "-",
+    "--"
+  ],
+  "limits": {
+    "q1": null,
+    "q2": null,
+    "q3": null
+  },
+  "overall_method": "mean_of_rounded_item_means"
+}

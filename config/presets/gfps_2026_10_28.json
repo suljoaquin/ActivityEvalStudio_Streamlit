@@ -1,0 +1,26 @@
+{
+  "id": "gfps_2026_10_28",
+  "name": "PSHS-SRC GFPS Deepening Session — 28–29 Oct 2026",
+  "match": { "filename_contains": ["gfps"], "speaker_count": 0 },
+  "activity_template": "activity_report",
+  "speaker_template": "speaker_report",
+  "activity_mapping": "pshs_activity_v1",
+  "speaker_mapping": "pshs_speaker_v1",
+  "metadata": {
+    "title": "PSHS-SRC GFPS Deepening Session",
+    "date": "October 28 – 29, 2026",
+    "venue": "Student Activity Center 2nd Floor, PSHS-SRC in Koronadal City, South Cotabato",
+    "proponent": "GFPS Committee",
+    "prepared_by": "ADRIAN ERLE B. VEGA",
+    "checked_by": "MARJUN I. BALQUIN",
+    "signatory_name": "BEULAH G. VILLARUEL",
+    "signatory_role": "GAD Focal Person"
+  },
+  "speakers": [],
+  "hospitality": { "mode": "na", "applicable": false },
+  "anomaly_notes": [
+    "The sample report shows every criterion as 5.00, but the CSV contains 4s. Recomputing from the CSV produces 4.73 (audio/visuals), 4.82 (schedule), and 4.91 (length/venue/food).",
+    "The sample keeps the hotel row at N/A even though the form collected hotel ratings. This preset treats the on-campus session as non-residential; switch the hospitality toggle to 'Applicable' to compute the 5.00 hotel mean."
+  ],
+  "notes": "Reference sample: 2026_10_28-29 GFPS.docx. The sample's hotel row is N/A even though the form collected hotel ratings; this preset keeps that N/A default."
+}

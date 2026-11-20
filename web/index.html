@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Activity Eval Studio — PSHS-SRC</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">AE<span>.</span></div>
+      <div>
+        <div class="brand-name">Activity Eval Studio</div>
+        <div class="brand-sub">PSHS-SRC · Committee Reports</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="local-pill"><i></i> Local workspace</span>
+      <a href="#historyCard" class="btn btn-ghost btn-sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+        History
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="heroView">
+      <div>
+        <div class="eyebrow">Evaluation reports, without the retyping</div>
+        <h1>Turn form responses into <em>committee-ready</em> reports.</h1>
+        <p class="hero-lede">
+          Upload a Google Forms CSV. The studio reads the activity and speaker blocks,
+          recomputes every mean, N, and comment, then fills your own Word templates —
+          headers, logos, tables and all.
+        </p>
+        <div class="hero-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 4v5c0 5-3 7-7 9-4-2-7-4-7-9V7l7-4z"/><path d="M9 12l2 2 4-4"/></svg> Local-only processing</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg> Word-native templates</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 4-6"/></svg> Recomputed statistics</span>
+        </div>
+      </div>
+      <div class="report-stack" aria-hidden="true">
+        <div class="stack-card back">
+          <div class="stack-top"><strong>Speaker / Topic</strong><i class="stack-dot"></i></div>
+          <div class="stack-title">Leadership: Integrity, Excellence</div>
+          <div class="stack-rule"></div>
+          <div class="stack-row"><span>Topic / Subject Matter</span><span>2.76 · Excellent</span></div>
+          <div class="stack-row"><span>Resource Person</span><span>4.62 · Strongly Agree</span></div>
+          <div class="stack-row"><span>Respondents</span><span>19</span></div>
+          <div class="stack-note">One report per speaker, built from that speaker's own column block.</div>
+        </div>
+        <div class="stack-card front">
+          <div class="stack-top"><strong>Activity Evaluation</strong><i class="stack-dot" style="background:var(--teal)"></i></div>
+          <div class="stack-title">TRAINING / WORKSHOP / ACTIVITY EVALUATION REPORT</div>
+          <div class="stack-rule"></div>
+          <div class="stack-row"><span>Overall satisfaction</span><span>4.61 · Excellent</span></div>
+          <div class="stack-row"><span>Number of respondents</span><span>18</span></div>
+          <div class="stack-row"><span>Part I criteria</span><span>13 items</span></div>
+          <div class="stack-row"><span>Template</span><span>Inherited .docx</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="upload-card" id="uploadCard">
+      <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload a CSV file">
+        <div class="drop-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 15v4h16v-4"/></svg>
+        </div>
+        <h3 id="dropTitle">Drop the Google Forms CSV here</h3>
+        <p id="dropText">or choose a file — one activity at a time</p>
+        <div class="upload-actions">
+          <button class="btn btn-primary" id="browseBtn" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h6l2 2h8v10H4z"/></svg>
+            Browse CSV
+          </button>
+          <span class="small muted">.csv · up to 15 MB</span>
+        </div>
+        <input type="file" id="fileInput" accept=".csv,text/csv" hidden>
+        <div class="sample-row">
+          <span>Try a sample</span>
+          <button class="sample-chip" data-sample="leap" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+            LEAP · 3 speakers
+          </button>
+          <button class="sample-chip" data-sample="gfps" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/></svg>
+            GFPS · no speakers
+          </button>
+        </div>
+        <div class="file-note">Your CSV and generated reports stay on this machine.</div>
+      </div>
+    </section>
+
+    <section class="workspace" id="workspace" hidden>
+      <div class="workspace-head">
+        <div>
+          <div class="card-kicker">Current activity</div>
+          <h2 id="wsTitle">Activity</h2>
+          <p id="wsFile">—</p>
+          <div class="summary-chips" id="summaryChips"></div>
+        </div>
+        <div class="upload-actions" style="justify-content:flex-end">
+          <button class="btn btn-ghost btn-sm" id="changeFileBtn" type="button">Change CSV</button>
+          <button class="btn btn-ghost btn-sm" id="startOverBtn" type="button">Start over</button>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+        <div class="main-column">
+          <div class="steps" aria-label="Workflow steps">
+            <div class="step done" id="step1"><b>1</b> Upload</div>
+            <div class="step active" id="step2"><b>2</b> Verify</div>
+            <div class="step" id="step3"><b>3</b> Generate</div>
+          </div>
+
+          <section class="card" id="validationCard">
+            <div class="card-head">
+              <div>
+                <div class="card-kicker">Detection</div>
+                <h3 class="card-title">What the studio found</h3>
+                <p class="card-sub" id="validationSub">—</p>
+              </div>
+              <span class="chip" id="readyBadge"><i></i><span>Checking</span></span>
+            </div>
+            <div class="checks" id="checkList"></div>
+            <div id="anomalyBox"></div>
+          </section>
+
+          <section class="card" id="detailsCard">
+            <div class="card-head">
+              <div>
+                <div class="card-kicker">Report details</div>
+                <h3 class="card-title">Metadata & signatories</h3>
+                <p class="card-sub">Labels, headings and table styling stay fixed. These values fill the template.</p>
+              </div>
+            </div>
+            <div class="preset-bar">
+              <label for="presetSelect">Preset</label>
+              <select id="presetSelect"></select>
+              <span class="small muted" id="presetNote"></span>
+            </div>
+            <form id="metaForm" autocomplete="off">
+              <div class="form-grid">
+                <div class="field wide">
+                  <label for="metaTitle">Training / workshop / activity</label>
+                  <input id="metaTitle" name="title" type="text" placeholder="Activity title">
+                </div>
+                <div class="field">
+                  <label for="metaDate">Date</label>
+                  <input id="metaDate" name="date" type="text" placeholder="September 30, 8:00 AM to 5:00 PM">
+                </div>
+                <div class="field">
+                  <label for="metaProponent">Proponent</label>
+                  <input id="metaProponent" name="proponent" type="text" placeholder="Committee / office">
+                </div>
+                <div class="field wide">
+                  <label for="metaVenue">Venue</label>
+                  <input id="metaVenue" name="venue" type="text" placeholder="Venue, campus, city">
+                </div>
+                <div class="field">
+                  <label for="preparedBy">Prepared by</label>
+                  <input id="preparedBy" name="prepared_by" type="text">
+                </div>
+                <div class="field">
+                  <label for="checkedBy">Checked by</label>
+                  <input id="checkedBy" name="checked_by" type="text">
+                </div>
+                <div class="field">
+                  <label for="signatoryName">Concurring signatory</label>
+                  <input id="signatoryName" name="signatory_name" type="text">
+                </div>
+                <div class="field">
+                  <label for="signatoryRole">Signatory role</label>
+                  <input id="signatoryRole" name="signatory_role" type="text">
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <section class="card" id="speakersCard">
+            <div class="card-head">
+              <div>
+                <div class="card-kicker">Speaker reports</div>
+                <h3 class="card-title">Resource persons <span class="muted" id="speakerCount"></span></h3>
+                <p class="card-sub">Names and topics are not in the CSV; they are prefilled from the preset and editable here.</p>
+              </div>
+            </div>
+            <div class="speaker-grid" id="speakerGrid"></div>
+            <div class="empty-note" id="speakerEmpty" hidden>No speaker blocks detected. Only the Activity Report will be generated.</div>
+          </section>
+
+          <section class="card" id="statsCard">
+            <div class="card-head">
+              <div>
+                <div class="card-kicker">Computed values</div>
+                <h3 class="card-title">Statistics & comments</h3>
+                <p class="card-sub" id="statsSub">Every figure below is recomputed from the uploaded CSV.</p>
+              </div>
+              <span class="chip gold" id="nChip"><i></i><span>N = —</span></span>
+            </div>
+            <div class="overall-grid" id="overallMetrics"></div>
+            <div class="table-wrap">
+              <table class="data" id="activityStats"></table>
+            </div>
+            <div class="hint">Frequency bars show the share of valid ratings at 1–5. Blank and “N/A” values are excluded from each item’s n.</div>
+            <div class="section-divider"></div>
+            <div class="card-head" style="margin-bottom:8px">
+              <div>
+                <h3 class="card-title" style="font-size:13px">Activity comments</h3>
+                <p class="card-sub">Verbatim, noise-filtered, numbered in CSV order.</p>
+              </div>
+            </div>
+            <div id="activityComments"></div>
+            <div class="section-divider"></div>
+            <div class="card-head" style="margin-bottom:8px">
+              <div>
+                <h3 class="card-title" style="font-size:13px">Speaker breakdown</h3>
+                <p class="card-sub">One block per resource person. Open a speaker to inspect the item-level means.</p>
+              </div>
+            </div>
+            <div class="speaker-stats" id="speakerStats"></div>
+          </section>
+
+          <section class="card" id="mappingCard">
+            <details class="details">
+              <summary>
+                <span>Column mapping &amp; reusable configuration</span>
+                <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="details-body">
+                <p class="card-sub" style="margin-bottom:12px">
+                  The mapping is a JSON layer between CSV headers and report rows. Edit it, save it under a new id,
+                  and reuse it for future forms — no render-code changes.
+                </p>
+                <div class="mapping-tools">
+                  <input class="search" id="mappingSearch" type="search" placeholder="Filter columns…">
+                  <span class="small muted" id="mappingCount"></span>
+                </div>
+                <div class="mapping-table" id="mappingTable"></div>
+                <div class="section-divider"></div>
+                <details class="details">
+                  <summary>
+                    <span>CSV preview <span class="muted small" id="previewCount"></span></span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="15" height="15"><path d="M6 9l6 6 6-6"/></svg>
+                  </summary>
+                  <div class="details-body">
+                    <div class="preview-table" id="previewTable"></div>
+                  </div>
+                </details>
+                <div class="section-divider"></div>
+                <div class="json-grid">
+                  <div class="field">
+                    <label>Activity mapping <button class="btn btn-ghost btn-sm" id="saveActivityMapping" type="button">Save as…</button></label>
+                    <textarea class="json-editor" id="activityMappingJson" spellcheck="false"></textarea>
+                  </div>
+                  <div class="field">
+                    <label>Speaker mapping <button class="btn btn-ghost btn-sm" id="saveSpeakerMapping" type="button">Save as…</button></label>
+                    <textarea class="json-editor" id="speakerMappingJson" spellcheck="false"></textarea>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="card generate-card" id="generateCard">
+            <div class="card-kicker">Step 3</div>
+            <div class="card-head" style="margin-bottom:4px">
+              <div>
+                <h3 class="card-title">Output package</h3>
+                <p class="card-sub" id="planSub">Activity report + speaker reports</p>
+              </div>
+            </div>
+            <div class="plan-list" id="planList"></div>
+
+            <div class="toggle-row" id="hospitalityRow">
+              <div class="toggle-copy">
+                <strong>Hospitality / venue row</strong>
+                <span id="hospitalityNote">Hotel accommodation row</span>
+              </div>
+              <select class="select-inline" id="hospitalityMode">
+                <option value="na">N/A · keep row</option>
+                <option value="compute">Compute from responses</option>
+                <option value="omit">Remove row</option>
+              </select>
+            </div>
+
+            <div class="toggle-row">
+              <div class="toggle-copy">
+                <strong>Also export PDFs</strong>
+                <span id="pdfNote">Uses Word or LibreOffice on this machine</span>
+              </div>
+              <label class="switch">
+                <input type="checkbox" id="makePdf">
+                <span></span>
+              </label>
+            </div>
+
+            <button class="btn btn-gold btn-block" id="generateBtn" type="button" style="margin-top:14px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h6"/></svg>
+              Generate report package
+            </button>
+            <div class="progress" id="progress">
+              <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+              <div class="progress-text" id="progressText">Preparing template…</div>
+            </div>
+            <div id="resultBox" style="margin-top:14px"></div>
+          </section>
+
+          <section class="card" id="historyCard">
+            <div class="card-head" style="margin-bottom:10px">
+              <div>
+                <div class="card-kicker">Archive</div>
+                <h3 class="card-title">Recent activities</h3>
+              </div>
+              <button class="btn btn-ghost btn-sm" id="refreshHistory" type="button">Refresh</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>Activity Eval Studio</strong><span class="dot">·</span>Philippine Science High School — SOCCSKSARGEN Region Campus</div>
+    <div>Template-driven .docx generation <span class="dot">·</span> Activity Evaluation &amp; Customer Satisfaction Committee</div>
+  </footer>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+<script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>

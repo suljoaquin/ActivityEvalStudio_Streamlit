@@ -1,0 +1,195 @@
+{
+  "id": "pshs_activity_v1",
+  "name": "PSHS Activity Evaluation (Sections A/B/C, 5-point)",
+  "version": 1,
+  "description": "Maps Google Forms activity-evaluation headers to the Activity Report rows. Patterns are matched against a lower-case, punctuation-normalised header.",
+  "scale": {
+    "min": 1,
+    "max": 5
+  },
+  "legend": [
+    {
+      "min": 4.2,
+      "max": 5.0,
+      "label": "Excellent"
+    },
+    {
+      "min": 3.4,
+      "max": 4.19,
+      "label": "Very Satisfactory"
+    },
+    {
+      "min": 2.6,
+      "max": 3.39,
+      "label": "Satisfactory"
+    },
+    {
+      "min": 1.8,
+      "max": 2.59,
+      "label": "Unsatisfactory"
+    },
+    {
+      "min": 1.0,
+      "max": 1.79,
+      "label": "Very Unsatisfactory"
+    }
+  ],
+  "items": [
+    {
+      "key": "content.objectives",
+      "group": "A. Training/ Workshop/ Activity Content",
+      "patterns": [
+        "objectives were clearly stated"
+      ],
+      "label": "The training/ workshop/ activity objectives were clearly stated"
+    },
+    {
+      "key": "content.organized",
+      "group": "A. Training/ Workshop/ Activity Content",
+      "patterns": [
+        "information was clear and well organized"
+      ],
+      "label": "Information was clear and well organized"
+    },
+    {
+      "key": "content.examples",
+      "group": "A. Training/ Workshop/ Activity Content",
+      "patterns": [
+        "examples exercises reinforced",
+        "examples exercises reinforced training"
+      ],
+      "label": "Examples/exercises reinforced training/ workshop/ activity objectives"
+    },
+    {
+      "key": "content.audio_visual",
+      "group": "A. Training/ Workshop/ Activity Content",
+      "patterns": [
+        "audio visuals reinforced"
+      ],
+      "label": "Audio/Visuals reinforced program content"
+    },
+    {
+      "key": "content.relevance",
+      "group": "A. Training/ Workshop/ Activity Content",
+      "patterns": [
+        "content was relevant to my needs"
+      ],
+      "label": "Content was relevant to my needs/ functions"
+    },
+    {
+      "key": "management.length",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "length of the program"
+      ],
+      "label": "Length of the program"
+    },
+    {
+      "key": "management.schedule",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "schedule of activities"
+      ],
+      "label": "Schedule of activities"
+    },
+    {
+      "key": "management.secretariat",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "secretariat",
+        "support staff"
+      ],
+      "label": "Secretariat & support staff, if any"
+    },
+    {
+      "key": "management.venue",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "venue of training workshop activity"
+      ],
+      "label": "Venue of training/ workshop/ activity (sound system, etc.)"
+    },
+    {
+      "key": "management.hospitality",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "hotel accommodation",
+        "lodging",
+        "hospitality"
+      ],
+      "label": "Hotel accommodation/ lodging",
+      "optional": true
+    },
+    {
+      "key": "management.food",
+      "group": "Management of Training/ Workshop/ Activity",
+      "patterns": [
+        "food meals served",
+        "food served"
+      ],
+      "label": "Food/ meals served"
+    },
+    {
+      "key": "overall.objectives",
+      "group": "Overall Evaluation",
+      "patterns": [
+        "objectives were accomplished"
+      ],
+      "label": "Training/ workshop/ activity objectives were accomplished."
+    },
+    {
+      "key": "overall.knowledge",
+      "group": "Overall Evaluation",
+      "patterns": [
+        "increased my knowledge and capabilities"
+      ],
+      "label": "This training/ workshop/ activity has increased my knowledge and capabilities."
+    }
+  ],
+  "comments": [
+    {
+      "key": "part2",
+      "patterns": [
+        "in what ways could we make"
+      ],
+      "label": "In what ways could we make the Training/ Workshop/ Activity more effective?"
+    },
+    {
+      "key": "part3",
+      "patterns": [
+        "any other comments"
+      ],
+      "label": "Any other comments?"
+    }
+  ],
+  "overall_keys": [
+    "overall.objectives",
+    "overall.knowledge"
+  ],
+  "consent_patterns": [
+    "consent"
+  ],
+  "ignore_patterns": [
+    "timestamp",
+    "email address",
+    "certificate status",
+    "certificate id"
+  ],
+  "noise": [
+    "n a",
+    "na",
+    "none",
+    "nil",
+    "no comment",
+    "no comments",
+    ".",
+    "-",
+    "--",
+    "n a none"
+  ],
+  "limits": {
+    "part2": null,
+    "part3": null
+  },
+  "overall_method": "mean_of_item_means"
+}
